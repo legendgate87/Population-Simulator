@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Threading;
-using PopulationSim;
-namespace PopulationSim
+
+namespace PopulationSimString
 {
     class Program
     {
-
-
-        public static void Main()
+        static void Main(string[] args)
         {
-            SimOne.Simulation();
-        }
 
+            SimOneString.Simulation();
+            Console.ReadLine();
+
+          
+ 
+        }
+            
+        }
     }
-}

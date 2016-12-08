@@ -46,7 +46,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomNumb.cs" />
-    <Compile Include="SimOne - Copy.cs" />
+    <Compile Include="SimOne.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
