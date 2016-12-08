@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PopulationSimString
 {
-    class RandomNumb
+   public static class RandomNumb
     {
         private static readonly Random Rng = new Random();
         private static int dice;

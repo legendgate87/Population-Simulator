@@ -1,92 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
-namespace PopulationSimString
+namespace PopulationSim
 {
-   public class SimOneString
+   public class SimOne
     {
+        public static readonly string timeInt;
+
+
+        //   public static async void birthDo()
+        //   {
+        //       
+        //       int randFour = await RandomNumb.DiceFour();
+        //   }
+        public static Random randomGen()
+            {
+             Random newRand = new Random();
+
+            return newRand;
+             
+            }
        
-
-    //   public static async void birthDo()
-    //   {
-    //       
-    //       float randFour = await RandomNumb.DiceFour();
-    //   }
-
-        static public string SimulationString()
+        static public void Simulation()
         {
 
+            for (int i = 0; i < 12; i++)
+            {
 
-            int timeInt=1;
-
-
-
+            
+            //int timeInt=1;
             //  double maturityAgeMale = 4;
             // double maturityAgefemale = 4;
 
             //----------------------
 
-
-           
-
-
             // double birthRateOne;
             // double birthRateTwo;
-
-
-
            
-            int monthsPerYear = 12;
-            float year = 0;
+     //       int monthsPerYear = 12;
+            int year = 0;
 
             //  var surviChaToMaxAge = (5 * kangarooTotal) / 100;
 
             //Kangaroos---------------------
-            float kangarooMaleMature = 1;
-            float kangarooFemaleMature = 1;
+            int kangarooMaleMature = 1;
+            int kangarooFemaleMature = 1;
 
-            float kangarooMaleInPouch = 0;
-            float kangarooFemaleInPouch = 0;
+            int kangarooMaleInPouch = 0;
+            int kangarooFemaleInPouch = 0;
 
-            float youngRoosMale = 0;
-            float youngRoosFemale = 0;
+            int youngRoosMale = 0;
+            int youngRoosFemale = 0;
 
-            float oldRooMale = 0;
-            float oldRooFemale = 0;
+            int oldRooMale = 0;
+            int oldRooFemale = 0;
             //--------------------
 
-            float grassTotal = 50;
+            int grassTotal = 50;
 
 
 
             //Young Totals-----------------
 
 
-            float youngRoosTotal = youngRoosMale + youngRoosFemale;
+            int youngRoosTotal = youngRoosMale + youngRoosFemale;
             //--------------------------
 
             //Mature Totals-----------------
 
 
-            float matureRoosTotal = kangarooMaleMature + kangarooFemaleMature;
+            int matureRoosTotal = kangarooMaleMature + kangarooFemaleMature;
             //--------------------------
 
             //Old Totals-----------------
 
 
-            float oldRoosTotal = oldRooMale + oldRooFemale;
+            int oldRoosTotal = oldRooMale + oldRooFemale;
             //--------------------------
 
 
-            float kangaroosInPouch = kangarooMaleInPouch + kangarooFemaleInPouch;
+            int kangaroosInPouch = kangarooMaleInPouch + kangarooFemaleInPouch;
 
 
-            float birthTotal = kangarooMaleMature + kangarooFemaleMature;
+            int birthTotal = kangarooMaleMature + kangarooFemaleMature;
 
 
             // Random mortality of the young
@@ -96,19 +91,17 @@ namespace PopulationSimString
             //   youngRoosTotal = youngRoosTotal - mortalityYoung;
             //--------------------------------
 
-            float kangarooTotal = youngRoosTotal + matureRoosTotal + oldRoosTotal; // Total count
+            int kangarooTotal = youngRoosTotal + matureRoosTotal + oldRoosTotal; // Total count
 
-            int monthNumber;
+            int monthNumber = 0;
 
-            for (monthNumber=1; monthNumber <= monthsPerYear; monthNumber++) // loop
-            {
                 
 
               
 
-                float randThree = RandomNumb.DiceThree();
-                float secondRemoveOne = RandomNumb.DiceOne();
-                float secondRemoveTwo = RandomNumb.DiceOnePointTwo();
+                int randThree = randomGen().Next(4);
+                int secondRemoveOne = randomGen().Next(2);
+                int secondRemoveTwo = randomGen().Next(2);
 
 
 
@@ -222,96 +215,82 @@ namespace PopulationSimString
                 }
 
                 //Age if -----------------------------------------// don't count the actuall year, count kangaroo year from birth
-                if (kangarooMaleInPouch >= RandomNumb.pouchvalueDiceMale()) // Max pouchvalue! // birthTotalMale Greater then
+                if (kangarooMaleInPouch >= randomGen().Next(3)) // Max pouchvalue! // birthTotalMale Greater then
                 {
                     kangarooMaleInPouch--;
                     youngRoosMale++;
 
 
                 }
-                if (kangarooFemaleInPouch >= RandomNumb.pouchvalueDiceFemale()) // Max pouchvalue!
+                if (kangarooFemaleInPouch >= randomGen().Next(3)) // Max pouchvalue!
                 {
                     kangarooFemaleInPouch--;
                     youngRoosFemale++;
 
                 }
 
-                if (youngRoosMale > RandomNumb.YoungvalueDiceMale()) // Max Youngvalue!
+                if (youngRoosMale > randomGen().Next(8)) // Max Youngvalue!
                 {
                     youngRoosMale--;
                     kangarooMaleMature++;
                 }
-                if (youngRoosFemale > RandomNumb.YoungvalueDiceFemale()) // Max Youngvalue!
+                if (youngRoosFemale > randomGen().Next(8)) // Max Youngvalue!
                 {
                     youngRoosFemale--;
                     kangarooFemaleMature++;
                 }
 
-                if (kangarooMaleMature > RandomNumb.MaturevalueDiceMale()) // Max Maturevalue!
+                if (kangarooMaleMature > randomGen().Next(32)) // Max Maturevalue!
                 {
                     kangarooMaleMature--;
                     oldRooMale++;
 
                 }
-                if (kangarooFemaleMature > RandomNumb.MaturevalueDiceFemale()) // Max Maturevalue!
+                if (kangarooFemaleMature > randomGen().Next(32)) // Max Maturevalue!
                 {
                     kangarooFemaleMature--;
                     oldRooFemale++;
                 }
 
-                if (oldRooMale > RandomNumb.OldvalueDiceMale()) // Max Oldvalue!
+                if (oldRooMale > randomGen().Next(16)) // Max Oldvalue!
                 {
                     oldRooMale--;
                 }
-                if (oldRooFemale > RandomNumb.OldvalueDiceFemale()) // Max Oldvalue!
+                if (oldRooFemale > randomGen().Next(16)) // Max Oldvalue!
                 {
                     oldRooFemale--;
                 }
                 //---------------------------------------------
-
-
-
-
-
-
-
-
-
-                
-                Thread.Sleep(1000 * timeInt * 1);
-
-
                 
 
+            
 
+            string SimOutPut = ("\r\n" +
+                                    "kangarooMaleInPouch= " + kangarooMaleInPouch + "\r\n" +
+
+                                    "kangarooFemaleInPouch= " + kangarooFemaleInPouch + "\r\n" +
+
+                                    "youngRoosMale= " + youngRoosMale + "\r\n" +
+                                    "youngRoosFemale= " + youngRoosFemale + "\r\n" +
+
+                                    "kangarooFemaleMature= " + kangarooFemaleMature + "\r\n" +
+                                    "kangarooMaleMature= " + kangarooMaleMature + "\r\n" +
+
+                                    "oldRooFemale= " + oldRooFemale + "\r\n" +
+                                    "oldRooMale= " + oldRooMale + "\r\n" +
+
+
+
+                                    "There is " + kangarooTotal + " kangaroos, " + "  Month: " + monthNumber + " Year: " + year + "\r\n" +
+
+
+
+                                    "Total Births: " + birthTotal + "\r\n" +
+
+                                    "Month length is " + timeInt + "seconds...");
+            Console.WriteLine(SimOutPut);
             }
-
-            string SimOutPut = ("$\r\n" +
-                                    "kangarooMaleInPouch= " + kangarooMaleInPouch +
-
-                                    "kangarooFemaleInPouch= " + kangarooFemaleInPouch +
-
-                                    "youngRoosMale= " + youngRoosMale +
-                                    "youngRoosFemale= " + youngRoosFemale +
-
-                                    "kangarooFemaleMature= " + kangarooFemaleMature +
-                                    "kangarooMaleMature= " + kangarooMaleMature +
-
-                                    "oldRooFemale= " + oldRooFemale +
-                                    "oldRooMale= " + oldRooMale +
-
-
-
-                                    "There is " + kangarooTotal + " kangaroos, " + "  Month: " + monthNumber + " Year: " + year +
-
-
-
-                                    birthTotal +
-
-                                    "Month length is {timeInt} seconds...");
-
-            return SimOutPut;
-
+            Console.ReadLine();
 
 
         }
